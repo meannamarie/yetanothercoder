@@ -1,0 +1,344 @@
+select transactions:
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/' xmlns:gsx='http://schemas.google.com/spreadsheets/2006/extended' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='W/&quot;DE8GRn8-eCt7ImA9WhRUGUo.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full</id>
+	<updated>2012-01-31T02:27:07.150Z</updated>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#list'/>
+	<title>test0.5348908520699941</title>
+	<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=tthzRAyaQMnB3B2ve5b03CA'/>
+	<link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full'/>
+	<link rel='http://schemas.google.com/g/2005#post' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full?sq=id%3E1+and+id+%3C%3D3'/>
+	<author>
+		<name>mbaturov</name>
+		<email>mbaturov@gmail.com</email>
+	</author>
+	<openSearch:totalResults>2</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+	<entry gd:etag='&quot;H1MWUBh6Mit7ImA7X04ESw..&quot;'>
+		<id>https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/cpzh4</id>
+		<updated>2012-01-31T02:27:07.150Z</updated>
+		<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-31T02:27:07.150Z</app:edited>
+		<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#list'/>
+		<title>2</title>
+		<content>name: второй, дата: 2000</content>
+		<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full/cpzh4'/>
+		<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full/cpzh4'/>
+		<gsx:id>2</gsx:id>
+		<gsx:name>второй</gsx:name>
+		<gsx:дата>2000</gsx:дата>
+	</entry>
+	<entry gd:etag='&quot;EAMdB0MjZit7ImA7X0xQSA..&quot;'>
+		<id>https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/cre1l</id>
+		<updated>2012-01-31T02:27:07.150Z</updated>
+		<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-31T02:27:07.150Z</app:edited>
+		<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#list'/>
+		<title>3</title>
+		<content>name: третий, дата: 3000</content>
+		<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full/cre1l'/>
+		<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/obt/private/full/cre1l'/>
+		<gsx:id>3</gsx:id>
+		<gsx:name>третий</gsx:name>
+		<gsx:дата>3000</gsx:дата>
+	</entry>
+</feed>
+
+
+
+
+[0xd0][0x94][0xd0][0xb0][0xd1][0x82][0xd0][0xb0]
+[0xd0][0x94][0xd0][0xb0][0xd1][0x82][0xd0][0xb0]
+
+[0xd0][0xb4][0xd0][0xb0][0xd1][0x82][0xd0][0xb0]
+[0xd0][0xb4][0xd0][0xb0][0xd1][0x82][0xd0][0xb0]
+
+
+
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:batch="http://schemas.google.com/gdata/batch" xmlns:gd="http://schemas.google.com/g/2005" xmlns:gs="http://schemas.google.com/spreadsheets/2006">
+	<entry gd:etag="&quot;YDwreyI.&quot;">
+		<batch:id>a1</batch:id>
+		<batch:operation type="update" />
+		<content />
+		<gs:cell col="1" inputValue="id" row="1" />
+		<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob8/R1C1</id>
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob8/private/full/R1C1" rel="self" type="application/atom+xml" />
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob8/private/full/R1C1" rel="edit" type="application/atom+xml" />
+		<title>A1</title>
+	</entry>
+	<entry gd:etag="&quot;ImA1E0oHUyt7&quot;">
+		<batch:id>a2</batch:id>
+		<batch:operation type="update" />
+		<content />
+		<gs:cell col="2" inputValue="name" row="1" />
+		<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob8/R1C2</id>
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob8/private/full/R1C2" rel="self" type="application/atom+xml" />
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob8/private/full/R1C2" rel="edit" type="application/atom+xml" />
+		<title>B1</title>
+	</entry>
+</feed>
+
+cell edit:
+<?xml version='1.0' encoding='UTF-8'?>
+<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006' xmlns:batch='http://schemas.google.com/gdata/batch' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='&quot;K3siYD4FEQ..&quot;'>
+	<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/oaw/R1C1</id>
+	<updated>2012-01-25T03:42:00.105Z</updated>
+	<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-25T03:42:00.105Z</app:edited>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#cell'/>
+	<title>A1</title>
+	<content>id</content>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/oaw/private/full/R1C1'/>
+	<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/oaw/private/full/R1C1'/>
+	<gs:cell row='1' col='1' inputValue='id'>id</gs:cell>
+</entry>
+
+
+getting cell edit url:
+<?xml version='1.0' encoding='UTF-8'?>
+<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006' xmlns:batch='http://schemas.google.com/gdata/batch' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='&quot;YDwreyI.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob6/R1C1</id>
+	<updated>2012-01-23T19:46:54.375Z</updated>
+	<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-23T19:46:54.375Z</app:edited>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#cell'/>
+	<title>A1</title>
+	<content></content>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob6/private/full/R1C1'/>
+	<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob6/private/full/R1C1'/>
+	<gs:cell row='1' col='1' inputValue=''></gs:cell>
+</entry>
+
+batch
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:batch="http://schemas.google.com/gdata/batch" xmlns:gd="http://schemas.google.com/g/2005" xmlns:gs="http://schemas.google.com/spreadsheets/2006">
+	<entry gd:etag="&quot;YDwreyI.&quot;">
+		<batch:id>a1</batch:id>
+		<batch:operation type="update" />
+		<gs:cell col="1" inputValue="id" row="1" />
+		<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob3/R1C1</id>
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob3/private/full/R1C1" rel="self" type="application/atom+xml" />
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob3/private/full/R1C1" rel="edit" type="application/atom+xml" />
+		<title>A1</title>
+	</entry>
+	<entry gd:etag="&quot;ImA1E0oHUyt7&quot;">
+		<batch:id>a2</batch:id>
+		<batch:operation type="update" />
+		<gs:cell col="2" inputValue="name" row="1" />
+		<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob3/R1C2</id>
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob3/private/full/R1C2" rel="self" type="application/atom+xml" />
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ob3/private/full/R1C2" rel="edit" type="application/atom+xml" />
+		<title>B1</title>
+	</entry>
+</feed>
+
+
+
+
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:batch="http://schemas.google.com/gdata/batch" xmlns:gs="http://schemas.google.com/spreadsheets/2006">
+	<entry>
+		<batch:id>a1</batch:id>
+		<batch:operation type="update" />
+		<gs:cell col="1" inputValue="id" row="1" />
+		<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/obd/private/full/R1C1</id>
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/obd/private/full/R1C1" rel="edit" type="application/atom+xml" />
+	</entry>
+	<entry>
+		<batch:id>a2</batch:id>
+		<batch:operation type="update" />
+		<gs:cell col="2" inputValue="name" row="1" />
+		<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/obd/private/full/R1C2</id>
+		<link href="https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/obd/private/full/R1C2" rel="edit" type="application/atom+xml" />
+	</entry>
+	<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/obd/private/full</id>
+</feed>
+
+
+
+
+
+
+cell feed:
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/' xmlns:gs='http://schemas.google.com/spreadsheets/2006' xmlns:batch='http://schemas.google.com/gdata/batch' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='W/&quot;DUAGSH05eit7ImA9WhRUEkQ.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/odc/private/full</id>
+	<updated>2012-01-23T05:48:49.322Z</updated>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#cell'/>
+	<title>test0.01609211458162285</title>
+	<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=tthzRAyaQMnB3B2ve5b03CA'/>
+	<link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/odc/private/full'/>
+	<link rel='http://schemas.google.com/g/2005#post' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/odc/private/full'/>
+	<link rel='http://schemas.google.com/g/2005#batch' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/odc/private/full/batch'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/odc/private/full'/>
+	<author>
+		<name>mbaturov</name>
+		<email>mbaturov@gmail.com</email>
+	</author>
+	<openSearch:totalResults>0</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+	<gs:rowCount>7</gs:rowCount>
+	<gs:colCount>17</gs:colCount>
+</feed>
+
+
+
+
+<?xml version="1.0"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gsx="http://schemas.google.com/spreadsheets/2006/extended">
+	<gsx:id>1</gsx:id>
+	<gsx:name>test name 1</gsx:name>
+</entry>
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/' xmlns:gsx='http://schemas.google.com/spreadsheets/2006/extended' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='W/&quot;C0QCSHc-eSt7ImA9WhRUEkQ.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/odx/private/full</id>
+	<updated>2012-01-23T04:02:49.951Z</updated>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#list'/>
+	<title>test0.10119353213077276</title>
+	<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=tthzRAyaQMnB3B2ve5b03CA'/>
+	<link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/odx/private/full'/>
+	<link rel='http://schemas.google.com/g/2005#post' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/odx/private/full'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/odx/private/full'/>
+	<author>
+		<name>mbaturov</name>
+		<email>mbaturov@gmail.com</email>
+	</author>
+	<openSearch:totalResults>0</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+</feed>
+
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/' xmlns:gs='http://schemas.google.com/spreadsheets/2006' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='W/&quot;A0cHRns_eCt7ImA9WhRUEU8.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full</id>
+	<updated>2012-01-21T06:57:17.540Z</updated>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#worksheet'/>
+	<title>financisto-demo.copy</title>
+	<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=tthzRAyaQMnB3B2ve5b03CA'/>
+	<link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full'/>
+	<link rel='http://schemas.google.com/g/2005#post' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full?title=test0.6969389997957309&amp;title-exact=true'/>
+	<author>
+		<name>mbaturov</name>
+		<email>mbaturov@gmail.com</email>
+	</author>
+	<openSearch:totalResults>1</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+	<entry gd:etag='&quot;YDwreyI.&quot;'>
+		<id>https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/oci</id>
+		<updated>2012-01-21T06:57:17.540Z</updated>
+		<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-21T06:57:17.540Z</app:edited>
+		<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#worksheet'/>
+		<title>test0.6969389997957309</title>
+		<content type='application/atom+xml;type=feed' src='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/oci/private/full'/>
+		<link rel='http://schemas.google.com/spreadsheets/2006#cellsfeed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/oci/private/full'/>
+		<link rel='http://schemas.google.com/visualization/2008#visualizationApi' type='application/atom+xml' href='https://spreadsheets.google.com/tq?key=tthzRAyaQMnB3B2ve5b03CA&amp;sheet=oci'/>
+		<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/oci'/>
+		<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/oci'/>
+		<gs:rowCount>7</gs:rowCount>
+		<gs:colCount>17</gs:colCount>
+	</entry>
+</feed>
+
+
+
+add return:
+<?xml version='1.0' encoding='UTF-8'?>
+<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='&quot;YDwreyI.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/ocp</id>
+	<updated>2012-01-21T05:34:32.059Z</updated>
+	<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-21T05:34:32.059Z</app:edited>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#worksheet'/>
+	<title>test0.549257168419613</title>
+	<content type='application/atom+xml;type=feed' src='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/ocp/private/full'/>
+	<link rel='http://schemas.google.com/spreadsheets/2006#cellsfeed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ocp/private/full'/>
+	<link rel='http://schemas.google.com/visualization/2008#visualizationApi' type='application/atom+xml' href='https://spreadsheets.google.com/tq?key=tthzRAyaQMnB3B2ve5b03CA&amp;sheet=ocp'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/ocp'/>
+	<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/ocp'/>
+	<gs:rowCount>7</gs:rowCount>
+	<gs:colCount>17</gs:colCount>
+</entry>
+
+edit return:
+<?xml version='1.0' encoding='UTF-8'?>
+<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='&quot;EVcHTEYCBit7ImBoW0E.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/ocm</id>
+	<updated>2012-01-22T12:44:11.405Z</updated>
+	<app:edited xmlns:app='http://www.w3.org/2007/app'>2012-01-22T12:44:11.405Z</app:edited>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#worksheet'/>
+	<title>edited0.43854427240464033</title>
+	<content type='application/atom+xml;type=feed' src='https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/ocm/private/full'/>
+	<link rel='http://schemas.google.com/spreadsheets/2006#cellsfeed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ocm/private/full'/>
+	<link rel='http://schemas.google.com/visualization/2008#visualizationApi' type='application/atom+xml' href='https://spreadsheets.google.com/tq?key=tthzRAyaQMnB3B2ve5b03CA&amp;sheet=ocm'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/ocm'/>
+	<link rel='edit' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/ocm'/>
+	<gs:rowCount>7</gs:rowCount>
+	<gs:colCount>17</gs:colCount>
+</entry>
+
+
+new worksheet: Entry [id=https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/ocr, title=test0.9829970229983409, etag="YDwreyI.", 
+workSheetUrl=Content [type=application/atom+xml;type=feed, src=https://spreadsheets.google.com/feeds/list/tthzRAyaQMnB3B2ve5b03CA/ocr/private/full], 
+rowCount=7, colCount=17, 
+links=[Link [rel=http://schemas.google.com/spreadsheets/2006#cellsfeed, type=application/atom+xml, href=https://spreadsheets.google.com/feeds/cells/tthzRAyaQMnB3B2ve5b03CA/ocr/private/full],
+Link [rel=http://schemas.google.com/visualization/2008#visualizationApi, type=application/atom+xml, href=https://spreadsheets.google.com/tq?key=tthzRAyaQMnB3B2ve5b03CA&sheet=ocr], 
+Link [rel=self, type=application/atom+xml, href=https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/ocr],
+Link [rel=edit, type=application/atom+xml, href=https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full/ocr]]]
+[21/01/12 08:55:52:052 GST] DEBUG tsccm.ThreadSafeClientConnManager: Get connection: HttpRoute[{s}->https://spreadsheets.google.com], timeout = 20000
+[
+
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:openSearch='http://a9.com/-/spec/opensearch/1.1/' xmlns:gd='http://schemas.google.com/g/2005' gd:etag='W/&quot;D0UGQHk6cSt7ImA9WhRVFkU.&quot;'>
+	<id>https://spreadsheets.google.com/feeds/spreadsheets/private/full</id>
+	<updated>2012-01-16T03:40:21.719Z</updated>
+	<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#spreadsheet'/>
+	<title>Available Spreadsheets - mbaturov@gmail.com</title>
+	<link rel='alternate' type='text/html' href='http://docs.google.com'/>
+	<link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/spreadsheets/private/full'/>
+	<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/spreadsheets/private/full'/>
+	<openSearch:totalResults>3</openSearch:totalResults>
+	<openSearch:startIndex>1</openSearch:startIndex>
+	<entry gd:etag='&quot;EUEbWAlKGit7ImBr&quot;'>
+		<id>https://spreadsheets.google.com/feeds/spreadsheets/tmezw8xeAGPJ2P0gIWt4WMw</id>
+		<updated>2012-01-16T03:35:06.922Z</updated>
+		<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#spreadsheet'/>
+		<title>financisto-demo</title>
+		<content type='application/atom+xml;type=feed' src='https://spreadsheets.google.com/feeds/worksheets/tmezw8xeAGPJ2P0gIWt4WMw/private/full'/>
+		<link rel='http://schemas.google.com/spreadsheets/2006#tablesfeed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/tmezw8xeAGPJ2P0gIWt4WMw/tables'/>
+		<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=0AlkevTY_E3lWdG1lenc4eGVBR1BKMlAwZ0lXdDRXTXc'/>
+		<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/spreadsheets/private/full/tmezw8xeAGPJ2P0gIWt4WMw'/>
+		<author>
+			<name>mbaturov</name>
+			<email>mbaturov@gmail.com</email>
+		</author>
+	</entry>
+	<entry gd:etag='&quot;HhNQRB5AQyt7ImBr&quot;'>
+		<id>https://spreadsheets.google.com/feeds/spreadsheets/tthzRAyaQMnB3B2ve5b03CA</id>
+		<updated>2011-12-13T15:54:13.360Z</updated>
+		<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#spreadsheet'/>
+		<title>financisto-demo.copy</title>
+		<content type='application/atom+xml;type=feed' src='https://spreadsheets.google.com/feeds/worksheets/tthzRAyaQMnB3B2ve5b03CA/private/full'/>
+		<link rel='http://schemas.google.com/spreadsheets/2006#tablesfeed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/tthzRAyaQMnB3B2ve5b03CA/tables'/>
+		<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=0AlkevTY_E3lWdHRoelJBeWFRTW5CM0IydmU1YjAzQ0E'/>
+		<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/spreadsheets/private/full/tthzRAyaQMnB3B2ve5b03CA'/>
+		<author>
+			<name>mbaturov</name>
+			<email>mbaturov@gmail.com</email>
+		</author>
+	</entry>
+	<entry gd:etag='&quot;ARcVGA5YHCt7ImBr&quot;'>
+		<id>https://spreadsheets.google.com/feeds/spreadsheets/tJpG8Gx95sFcIMFQhC_xHuQ</id>
+		<updated>2010-11-28T11:47:49.472Z</updated>
+		<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#spreadsheet'/>
+		<title>z-passports</title>
+		<content type='application/atom+xml;type=feed' src='https://spreadsheets.google.com/feeds/worksheets/tJpG8Gx95sFcIMFQhC_xHuQ/private/full'/>
+		<link rel='http://schemas.google.com/spreadsheets/2006#tablesfeed' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/tJpG8Gx95sFcIMFQhC_xHuQ/tables'/>
+		<link rel='alternate' type='text/html' href='https://spreadsheets.google.com/ccc?key=0AlkevTY_E3lWdEpwRzhHeDk1c0ZjSU1GUWhDX3hIdVE'/>
+		<link rel='self' type='application/atom+xml' href='https://spreadsheets.google.com/feeds/spreadsheets/private/full/tJpG8Gx95sFcIMFQhC_xHuQ'/>
+		<author>
+			<name>mbaturov</name>
+			<email>mbaturov@gmail.com</email>
+		</author>
+	</entry>
+</feed>
