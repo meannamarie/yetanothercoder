@@ -1,0 +1,81 @@
+import org.apache.ivy.plugins.resolver.URLResolver
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'gae'
+apply plugin: 'gaelyk'
+
+def compatibilityVersion = 1.6
+sourceCompatibility = compatibilityVersion
+targetCompatibility = compatibilityVersion
+
+buildscript {
+    gitHub = {
+        def resolver = new URLResolver()
+
+        resolver.with {
+            name = 'GitHub'
+            addArtifactPattern 'http://cloud.github.com/downloads/[organisation]/[module]/[module]-[revision].[ext]'
+        }
+
+        resolver
+    }
+
+    repositories {
+        add gitHub()
+    }
+
+    dependencies {
+        classpath 'bmuschko:gradle-gae-plugin:0.5.2'
+        classpath 'bmuschko:gradle-gaelyk-plugin:0.3'
+    }
+}
+
+repositories {
+    mavenCentral()
+    add gitHub()
+}
+
+dependencies {
+	def gaeVersion = '1.6.0'
+	groovy 'org.codehaus.groovy:groovy-all:1.8.2'
+	//providedCompile 'javax.servlet:servlet-api:2.5'
+	
+	// not found in any public reporitory:
+	compile fileTree('nonrepo-libs')
+					
+	compile 'glaforge:gaelyk:1.1',
+			"com.google.appengine:appengine-api-1.0-sdk:$gaeVersion",
+			"com.google.appengine:appengine-api-labs:$gaeVersion"
+			
+	testCompile 'org.spockframework:spock-core:0.5-groovy-1.8', {
+		exclude group: 'org.codehaus.groovy', name: 'groovy-all'
+	}
+	testCompile 'marcoVermeulen:gaelyk-spock:0.2',
+				"com.google.appengine:appengine-api-stubs:$gaeVersion",
+				"com.google.appengine:appengine-testing:$gaeVersion",
+				'javax.servlet:servlet-api:2.5',
+				'cglib:cglib-nodep:2.2',
+				'org.objenesis:objenesis:1.2'
+				
+	gaeSdk "com.google.appengine:appengine-java-sdk:$gaeVersion"
+}
+
+sourceSets {
+	main {
+		output.classesDir = file('src/main/webapp/WEB-INF/classes')
+	}
+}
+
+clean.doLast {
+	delete sourceSets*.output.classesDir
+}
+
+task copyRuntimeLibraries(type: Sync){
+	def webAppLibDirName = 'src/main/webapp/WEB-INF/lib'
+	description = "Copies runtime libraries to $webAppLibDirName."
+	copy{
+		from configurations.runtime
+		into webAppLibDirName
+	}
+}

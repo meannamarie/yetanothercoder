@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<projectSuggestions>
+<declaringtype type="ru.yetanothercoder.financisto.demo.DictController">
+<method isActive="true" isStatic="false" name="calcTotal" type="java.lang.String">
+<parameters useNamedArguments="false">
+<parameter name="acc" type=""/>
+</parameters>
+<doc/>
+</method>
+</declaringtype>
+</projectSuggestions>
