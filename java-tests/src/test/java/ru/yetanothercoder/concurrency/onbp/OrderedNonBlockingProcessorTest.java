@@ -15,7 +15,6 @@ public class OrderedNonBlockingProcessorTest {
 
     @Before
     public void setUp() throws Exception {
-
     }
 
     @After
