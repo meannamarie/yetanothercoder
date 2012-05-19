@@ -77,7 +77,7 @@ public class SpreadsheetTests {
 		GoogleUrl sUrl = new GoogleUrl(String.format(
 				"https://spreadsheets.google.com/feeds/spreadsheets/private/full?title=%s&title-exact=true", 
 				URLEncoder.encode(FILE_NAME, "UTF-8")));
-		sUrl.prettyprint = true;
+		sUrl.setPrettyPrint(true);
 		
 		HttpRequest request = createGetRequest(sUrl);
 		
@@ -99,7 +99,7 @@ public class SpreadsheetTests {
 	public void addWorksheet() throws IOException {
 		// adding new worksheet
 		GoogleUrl url = new GoogleUrl(testSpreadsheetEntry.getContent().getSrc());
-		url.prettyprint = true;
+        url.setPrettyPrint(true);
 		
 		String newWorksheetName = "test" + Math.random();
 		Entry newWorksheet = new Entry(newWorksheetName, 7, 17);
@@ -132,7 +132,7 @@ public class SpreadsheetTests {
 	@Test
 	public void editWorksheet() throws IOException {
 		GoogleUrl url = new GoogleUrl(worksheetEntry.findEditLink().getHref());
-		url.prettyprint = true;
+        url.setPrettyPrint(true);
 		
 		worksheetEntry.setTitle(worksheetEntry.getTitle() + " editted!");
 		
@@ -168,7 +168,7 @@ public class SpreadsheetTests {
 		
 		// select third and second
 		GoogleUrl url = new GoogleUrl(worksheetEntry.getContent().getSrc());
-		url.prettyprint = true;
+        url.setPrettyPrint(true);
 		url.set("sq", "id>1 and id <=3");
 		url.set("orderby", "id");
 		url.set("reverse", "true");
@@ -208,7 +208,7 @@ public class SpreadsheetTests {
 		
 		// now, delete it
 		GoogleUrl url = new GoogleUrl(added.findEditLink().getHref());
-		url.prettyprint = true;
+        url.setPrettyPrint(true);
 		
 		HttpRequest request = transport.createRequestFactory().buildDeleteRequest(url);
 		addGoogleHeaders(request);
@@ -238,7 +238,7 @@ public class SpreadsheetTests {
 		added.setName(newName);
 		
 		GoogleUrl url = new GoogleUrl(added.findEditLink().getHref());
-		url.prettyprint = true;
+        url.setPrettyPrint(true);
 		
 		AtomContent requestContent = AtomContent.forEntry(ROW_NAMESPACE, added);
 		HttpRequest request = transport.createRequestFactory().buildPutRequest(url, requestContent);
@@ -303,7 +303,7 @@ public class SpreadsheetTests {
 
     public Feed retrieveCellFeed() throws IOException {
         GoogleUrl url = new GoogleUrl(worksheetEntry.findCellFeedUrl().getHref());
-        url.prettyprint = true;
+        url.setPrettyPrint(true);
 
         HttpRequest request = createGetRequest(url);
         request.addParser(new AtomParser(CELL_NAMESPACE));
@@ -320,7 +320,7 @@ public class SpreadsheetTests {
     public Entry retrieveCell(String postUrl, int row, int col) throws IOException {
         String cellEditUrl = generateCellUrl(postUrl, row, col);
         GoogleUrl url = new GoogleUrl(cellEditUrl);
-        url.prettyprint = true;
+        url.setPrettyPrint(true);
 
         HttpRequest request = transport.createRequestFactory().buildGetRequest(url);
         addGoogleHeaders(request);
@@ -347,7 +347,7 @@ public class SpreadsheetTests {
         }
 
         GoogleUrl url = new GoogleUrl(rowFeed.findPostUrl().getHref());
-        url.prettyprint = true;
+        url.setPrettyPrint(true);
 
         AtomContent requestContent = AtomContent.forEntry(ROW_NAMESPACE, transaction);
         HttpRequest request = transport.createRequestFactory().buildPostRequest(url, requestContent);
@@ -372,7 +372,7 @@ public class SpreadsheetTests {
 
     public Feed getRowFeed() throws IOException {
         GoogleUrl url = new GoogleUrl(worksheetEntry.getContent().getSrc());
-        url.prettyprint = true;
+        url.setPrettyPrint(true);
 
         HttpRequest request = createGetRequest(url);
         request.addParser(new AtomParser(ROW_NAMESPACE));
