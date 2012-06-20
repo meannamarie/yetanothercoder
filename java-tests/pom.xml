@@ -28,13 +28,13 @@
 		<artifactId>log4j</artifactId>
 		<version>1.2.16</version>
 	</dependency>
-	            
-    
-    <dependency>
-		<groupId>com.google.api-client</groupId>
-		<artifactId>google-api-client</artifactId>
-		<version>1.9.0-beta</version>
-	</dependency>
+
+
+      <dependency>
+          <groupId>com.google.api-client</groupId>
+          <artifactId>google-api-client</artifactId>
+          <version>1.10.1-beta</version>
+      </dependency>
 	
 	<!-- <dependency>
 		<groupId>com.google.api.client</groupId>
