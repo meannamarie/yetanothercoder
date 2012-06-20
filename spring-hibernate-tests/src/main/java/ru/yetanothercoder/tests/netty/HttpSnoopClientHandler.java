@@ -1,5 +1,6 @@
 package ru.yetanothercoder.tests.netty;
 
+import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -14,14 +15,18 @@ import org.jboss.netty.util.CharsetUtil;
  * @created 6/20/12 9:05 AM
  */
 public class HttpSnoopClientHandler extends SimpleChannelUpstreamHandler {
+    private static Logger logger = Logger.getLogger(HttpSnoopClientHandler.class);
 
     private boolean readingChunks;
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
+        logger.debug("messageReceived" + e.getMessage());
+
+
+        System.out.println("*******************************************");
         if (!readingChunks) {
             HttpResponse response = (HttpResponse) e.getMessage();
-
             System.out.println("STATUS: " + response.getStatus());
             System.out.println("VERSION: " + response.getProtocolVersion());
             System.out.println();
@@ -37,6 +42,7 @@ public class HttpSnoopClientHandler extends SimpleChannelUpstreamHandler {
 
             if (response.isChunked()) {
                 readingChunks = true;
+
                 System.out.println("CHUNKED CONTENT {");
             } else {
                 ChannelBuffer content = response.getContent();

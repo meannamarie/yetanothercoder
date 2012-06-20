@@ -1,5 +1,6 @@
 package ru.yetanothercoder.tests.netty;
 
+import org.apache.log4j.Logger;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
@@ -17,11 +18,14 @@ import java.util.concurrent.Executors;
  * @created 6/20/12 7:45 AM
  */
 public class NettyClientTests {
+
+    private static Logger logger = Logger.getLogger(NettyClientTests.class);
+
     private URI uri;
 
     @Before
     public void setUp() throws Exception {
-        uri = new URI("http://ya.ru");
+        uri = new URI("http://ya.ru/");
     }
 
     @Test
@@ -70,12 +74,22 @@ public class NettyClientTests {
         request.setHeader(HttpHeaders.Names.HOST, host);
         request.setHeader(HttpHeaders.Names.CONNECTION, HttpHeaders.Values.CLOSE);
         request.setHeader(HttpHeaders.Names.ACCEPT_ENCODING, HttpHeaders.Values.GZIP);
+//        request.setHeader(HttpHeaders.Names.CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
+//        request.setHeader(HttpHeaders.Names.CACHE_CONTROL, "max-age=0");
+//        request.setHeader(HttpHeaders.Names.ACCEPT, "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+//        request.setHeader(HttpHeaders.Names.ACCEPT_CHARSET, "windows-1251,utf-8;q=0.7,*;q=0.3");
+//        request.setHeader(HttpHeaders.Names.ACCEPT_ENCODING, "gzip,deflate,sdch");
+//        request.setHeader(HttpHeaders.Names.ACCEPT_LANGUAGE, "ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4");
+//        request.setHeader(HttpHeaders.Names.USER_AGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64) " +
+//                "AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.56 Safari/536.5");
 
         // Set some example cookies.
         CookieEncoder httpCookieEncoder = new CookieEncoder(false);
-        httpCookieEncoder.addCookie("my-cookie", "foo");
-        httpCookieEncoder.addCookie("another-cookie", "bar");
+        httpCookieEncoder.addCookie("yandexuid", "2408254491337239538");
+        httpCookieEncoder.addCookie("ys", "bar.chrome.1.4.418#translate.chrome.1.0.102#vb.chrome.1.2.321");
         request.setHeader(HttpHeaders.Names.COOKIE, httpCookieEncoder.encode());
+
+        logger.debug("request: " + request);
 
         // Send the HTTP request.
         channel.write(request);
