@@ -6,8 +6,8 @@ import com.google.api.client.googleapis.auth.clientlogin.ClientLogin.Response;
 import com.google.api.client.http.*;
 import com.google.api.client.http.apache.ApacheHttpTransport;
 import com.google.api.client.http.xml.atom.AtomContent;
-import com.google.api.client.http.xml.atom.AtomParser;
 import com.google.api.client.xml.XmlNamespaceDictionary;
+import com.google.api.client.xml.XmlObjectParser;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
@@ -19,8 +19,8 @@ import java.net.URLEncoder;
 import java.util.Date;
 
 public class SpreadsheetTests {
-	
-	public static final String FILE_NAME = "financisto-demo.copy";
+
+	public static final String FILE_NAME = "fintest";
 	
 	public static final String AUTHORIZATION_HTTP_HEADER = "Authorization";
 	public static final String GDATA_VERSION_HTTP_HEADER = "GData-Version";
@@ -81,7 +81,7 @@ public class SpreadsheetTests {
 		
 		HttpRequest request = createGetRequest(sUrl);
 		
-		request.addParser(new AtomParser(SPREADSHEET_NAMESPACE));
+		request.setParser(new XmlObjectParser(SPREADSHEET_NAMESPACE));
 		HttpResponse resp = request.execute();
 		Assert.assertTrue(resp.getStatusCode() == 200);
 		
@@ -106,7 +106,7 @@ public class SpreadsheetTests {
 		
 		AtomContent requestContent = AtomContent.forEntry(WORKSHEET_NAMESPACE, newWorksheet);
 		HttpRequest request = transport.createRequestFactory().buildPostRequest(url, requestContent);
-		request.addParser(new AtomParser(WORKSHEET_NAMESPACE));
+        request.setParser(new XmlObjectParser(WORKSHEET_NAMESPACE));
 		addGoogleHeaders(request);
 		
 		System.err.println("trying adding:");
@@ -138,7 +138,7 @@ public class SpreadsheetTests {
 		
 		AtomContent requestContent = AtomContent.forEntry(WORKSHEET_NAMESPACE, worksheetEntry);
 		HttpRequest request = transport.createRequestFactory().buildPutRequest(url, requestContent);
-		request.addParser(new AtomParser(WORKSHEET_NAMESPACE));
+        request.setParser(new XmlObjectParser(WORKSHEET_NAMESPACE));
 		addGoogleHeaders(request);
 		
 		System.err.println("trying editting:");
@@ -174,7 +174,7 @@ public class SpreadsheetTests {
 		url.set("reverse", "true");
 		
 		HttpRequest request = createGetRequest(url);
-		request.addParser(new AtomParser(ROW_NAMESPACE));
+        request.setParser(new XmlObjectParser(ROW_NAMESPACE));
 		HttpResponse resp = request.execute();
 		
 		Assert.assertTrue(resp.getStatusCode() == 200);
@@ -243,7 +243,7 @@ public class SpreadsheetTests {
 		AtomContent requestContent = AtomContent.forEntry(ROW_NAMESPACE, added);
 		HttpRequest request = transport.createRequestFactory().buildPutRequest(url, requestContent);
 		addGoogleHeaders(request);
-		request.addParser(new AtomParser(ROW_NAMESPACE));
+        request.setParser(new XmlObjectParser(ROW_NAMESPACE));
 		
 		System.err.println("trying editing transaction");
 		HttpResponse resp = request.execute();
@@ -285,7 +285,7 @@ public class SpreadsheetTests {
 		GoogleUrl url = new GoogleUrl(batchUrl);
 		AtomContent requestContent = AtomContent.forFeed(CELL_NAMESPACE, headerRow);
 		HttpRequest request = transport.createRequestFactory().buildPutRequest(url, requestContent);
-		request.addParser(new AtomParser(CELL_NAMESPACE));
+        request.setParser(new XmlObjectParser(CELL_NAMESPACE));
 		addGoogleHeaders(request);
 		request.getHeaders().setIfMatch(cellFeed.getEtag());
 		
@@ -306,7 +306,7 @@ public class SpreadsheetTests {
         url.setPrettyPrint(true);
 
         HttpRequest request = createGetRequest(url);
-        request.addParser(new AtomParser(CELL_NAMESPACE));
+        request.setParser(new XmlObjectParser(CELL_NAMESPACE));
         HttpResponse resp = request.execute();
 
         Assert.assertTrue(resp.getStatusCode() == 200);
@@ -324,7 +324,7 @@ public class SpreadsheetTests {
 
         HttpRequest request = transport.createRequestFactory().buildGetRequest(url);
         addGoogleHeaders(request);
-        request.addParser(new AtomParser(CELL_NAMESPACE));
+        request.setParser(new XmlObjectParser(CELL_NAMESPACE));
         System.err.println("trying getting:");
         HttpResponse resp = request.execute();
         Assert.assertTrue(resp.getStatusCode() == 200);
@@ -352,7 +352,7 @@ public class SpreadsheetTests {
         AtomContent requestContent = AtomContent.forEntry(ROW_NAMESPACE, transaction);
         HttpRequest request = transport.createRequestFactory().buildPostRequest(url, requestContent);
         addGoogleHeaders(request);
-        request.addParser(new AtomParser(ROW_NAMESPACE));
+        request.setParser(new XmlObjectParser(ROW_NAMESPACE));
 
         System.err.println("trying adding new transaction");
         HttpResponse resp = request.execute();
@@ -375,7 +375,7 @@ public class SpreadsheetTests {
         url.setPrettyPrint(true);
 
         HttpRequest request = createGetRequest(url);
-        request.addParser(new AtomParser(ROW_NAMESPACE));
+        request.setParser(new XmlObjectParser(ROW_NAMESPACE));
         HttpResponse resp = request.execute();
 
         Assert.assertTrue(resp.getStatusCode() == 200);
@@ -418,7 +418,7 @@ public class SpreadsheetTests {
         AtomContent requestContent = AtomContent.forEntry(CELL_NAMESPACE, entry);
         HttpRequest request = transport.createRequestFactory().buildPutRequest(url, requestContent);
         addGoogleHeaders(request);
-        request.addParser(new AtomParser(CELL_NAMESPACE));
+        request.setParser(new XmlObjectParser(CELL_NAMESPACE));
         request.getHeaders().setIfMatch(entry.getEtag());
 
         System.err.println("trying updating entry:");
