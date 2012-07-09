@@ -86,9 +86,37 @@ public class SpreadsheetTests {
 		Assert.assertTrue(resp.getStatusCode() == 200);
 		
 		Feed f = resp.parseAs(Feed.class);
-		Assert.assertTrue(f.getEntries().size() == 1);
+
+        if (f.getEntries() == null) {
+            /* create new : seems not supported via sheet api, only via Doc List API:
+                https://developers.google.com/google-apps/spreadsheets/#creating_a_spreadsheet
+             */
+
+            sUrl = new GoogleUrl("https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+            sUrl.setPrettyPrint(true);
+
+            Entry sheet = new Entry();
+            sheet.setTitle(FILE_NAME);
+
+            AtomContent requestContent = AtomContent.forEntry(SPREADSHEET_NAMESPACE, sheet);
+
+            HttpRequest createRequest = transport.createRequestFactory().buildPostRequest(sUrl, requestContent);
+            createRequest.setParser(new XmlObjectParser(SPREADSHEET_NAMESPACE));
+            addGoogleHeaders(request);
+
+            System.err.println("trying adding SPREADSHEET:");
+            resp = request.execute();
+            //Assert.assertTrue(resp.getStatusCode() == 201);
+            Entry added = resp.parseAs(Entry.class);
+            System.err.println("added SPREADSHEET entry: " + added);
+            testSpreadsheetEntry = added;
+        } else {
+		    Assert.assertTrue(f.getEntries().size() == 1);
+
+            testSpreadsheetEntry = f.getEntries().get(0);
+        }
 		
-		testSpreadsheetEntry = f.getEntries().get(0);
+
 	}
 
 	/**
