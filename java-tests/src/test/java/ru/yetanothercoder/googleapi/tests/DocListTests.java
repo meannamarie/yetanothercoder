@@ -7,6 +7,7 @@
 
 package ru.yetanothercoder.googleapi.tests;
 
+import com.google.api.client.googleapis.GoogleHeaders;
 import com.google.api.client.googleapis.GoogleUrl;
 import com.google.api.client.googleapis.auth.clientlogin.ClientLogin;
 import com.google.api.client.googleapis.media.MediaHttpUploader;
@@ -21,6 +22,7 @@ import org.junit.Test;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * @author Mikhail Baturov, 06.07.12 20:09
@@ -77,6 +79,7 @@ public class DocListTests {
                 request.setInterceptor(new HttpExecuteInterceptor() {
                     @Override
                     public void intercept(HttpRequest request) throws IOException {
+                        new GoogleHeaders();
                         request.getHeaders().setAuthorization(authResponse.getAuthorizationHeaderValue());
                         request.getHeaders().set("GData-Version", "3.0");
                     }
@@ -93,6 +96,13 @@ public class DocListTests {
         if (!response.isSuccessStatusCode()) {
             throw new RuntimeException("failed!");
         }
+
+        InputStream is = new BufferedInputStream(response.getContent());
+        byte[] data = new byte[is.available()];
+        System.err.println(is.read(data));
+        is.close();
+
+        System.err.println("content: " + new String(data, "UTF-8"));
     }
 
     class CustomProgressListener implements MediaHttpUploaderProgressListener {
@@ -107,7 +117,7 @@ public class DocListTests {
                 case MEDIA_IN_PROGRESS:
                     System.err.println(uploader.getProgress());
                     break;
-                case MEDIA_COMPLETE:
+                case MEDIA_COMPLETE: //uploader.getMediaContent().writeTo(System.err);
                     System.err.println("Upload is complete!");
             }
         }
