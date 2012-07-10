@@ -33,19 +33,19 @@ public class SpreadsheetTests {
 	private static Entry testSpreadsheetEntry;
 	private static Entry worksheetEntry;
 
-	private static final XmlNamespaceDictionary SPREADSHEET_NAMESPACE = new XmlNamespaceDictionary()
+	public static final XmlNamespaceDictionary SPREADSHEET_NAMESPACE = new XmlNamespaceDictionary()
 	    .set("", "http://www.w3.org/2005/Atom")
 	    .set("gd", "http://schemas.google.com/g/2005")
 	    .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/");
 	
-	private static final XmlNamespaceDictionary WORKSHEET_NAMESPACE = new XmlNamespaceDictionary()
+	public static final XmlNamespaceDictionary WORKSHEET_NAMESPACE = new XmlNamespaceDictionary()
 	    .set("", "http://www.w3.org/2005/Atom")
 	    .set("gd", "http://schemas.google.com/g/2005")
 	    .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/")
 	    .set("gs", "http://schemas.google.com/spreadsheets/2006")
 	    .set("gsx", "http://schemas.google.com/spreadsheets/2006/extended");
 	
-	private static final XmlNamespaceDictionary ROW_NAMESPACE = new XmlNamespaceDictionary()
+	public static final XmlNamespaceDictionary ROW_NAMESPACE = new XmlNamespaceDictionary()
 	    .set("", "http://www.w3.org/2005/Atom")
 	    .set("gd", "http://schemas.google.com/g/2005")
 	    .set("gsx", "http://schemas.google.com/spreadsheets/2006/extended")
