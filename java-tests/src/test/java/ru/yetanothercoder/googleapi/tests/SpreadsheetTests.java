@@ -33,19 +33,19 @@ public class SpreadsheetTests {
 	private static Entry testSpreadsheetEntry;
 	private static Entry worksheetEntry;
 
-	private static final XmlNamespaceDictionary SPREADSHEET_NAMESPACE = new XmlNamespaceDictionary()
+	public static final XmlNamespaceDictionary SPREADSHEET_NAMESPACE = new XmlNamespaceDictionary()
 	    .set("", "http://www.w3.org/2005/Atom")
 	    .set("gd", "http://schemas.google.com/g/2005")
 	    .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/");
 	
-	private static final XmlNamespaceDictionary WORKSHEET_NAMESPACE = new XmlNamespaceDictionary()
+	public static final XmlNamespaceDictionary WORKSHEET_NAMESPACE = new XmlNamespaceDictionary()
 	    .set("", "http://www.w3.org/2005/Atom")
 	    .set("gd", "http://schemas.google.com/g/2005")
 	    .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/")
 	    .set("gs", "http://schemas.google.com/spreadsheets/2006")
 	    .set("gsx", "http://schemas.google.com/spreadsheets/2006/extended");
 	
-	private static final XmlNamespaceDictionary ROW_NAMESPACE = new XmlNamespaceDictionary()
+	public static final XmlNamespaceDictionary ROW_NAMESPACE = new XmlNamespaceDictionary()
 	    .set("", "http://www.w3.org/2005/Atom")
 	    .set("gd", "http://schemas.google.com/g/2005")
 	    .set("gsx", "http://schemas.google.com/spreadsheets/2006/extended")
@@ -86,9 +86,37 @@ public class SpreadsheetTests {
 		Assert.assertTrue(resp.getStatusCode() == 200);
 		
 		Feed f = resp.parseAs(Feed.class);
-		Assert.assertTrue(f.getEntries().size() == 1);
+
+        if (f.getEntries() == null) {
+            /* create new : seems not supported via sheet api, only via Doc List API:
+                https://developers.google.com/google-apps/spreadsheets/#creating_a_spreadsheet
+             */
+
+            sUrl = new GoogleUrl("https://spreadsheets.google.com/feeds/spreadsheets/private/full");
+            sUrl.setPrettyPrint(true);
+
+            Entry sheet = new Entry();
+            sheet.setTitle(FILE_NAME);
+
+            AtomContent requestContent = AtomContent.forEntry(SPREADSHEET_NAMESPACE, sheet);
+
+            HttpRequest createRequest = transport.createRequestFactory().buildPostRequest(sUrl, requestContent);
+            createRequest.setParser(new XmlObjectParser(SPREADSHEET_NAMESPACE));
+            addGoogleHeaders(request);
+
+            System.err.println("trying adding SPREADSHEET:");
+            resp = request.execute();
+            //Assert.assertTrue(resp.getStatusCode() == 201);
+            Entry added = resp.parseAs(Entry.class);
+            System.err.println("added SPREADSHEET entry: " + added);
+            testSpreadsheetEntry = added;
+        } else {
+		    Assert.assertTrue(f.getEntries().size() == 1);
+
+            testSpreadsheetEntry = f.getEntries().get(0);
+        }
 		
-		testSpreadsheetEntry = f.getEntries().get(0);
+
 	}
 
 	/**
