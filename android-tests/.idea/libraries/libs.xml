@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-1.6.0-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/guava-r09.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-1.6.0-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-collections-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-extensions-android2-1.6.0-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-extensions-android2-1.6.0-beta.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
