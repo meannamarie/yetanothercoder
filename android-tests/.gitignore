@@ -1,1 +1,3 @@
 *.iml
+junits/local.properties
+junits/ant.properties
