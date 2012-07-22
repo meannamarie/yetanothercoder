@@ -104,7 +104,7 @@ public class SampleActivityTest extends ActivityInstrumentationTestCase2<SampleA
     //@Test
     public void testEditWorksheet() throws IOException {
         GoogleUrl url = new GoogleUrl(worksheetEntry.findEditLink().getHref());
-        url.prettyprint = true;
+        url.setPrettyPrint(true);
 
         worksheetEntry.setTitle(worksheetEntry.getTitle() + " editted!");
 
