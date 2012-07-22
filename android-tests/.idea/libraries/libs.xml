@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="libs">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/google-http-client-extensions-android2-1.6.0-beta.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/google-http-client-1.6.0-beta.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/google-api-client-1.6.0-beta.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/guava-r09.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/google-api-client-extensions-android2-1.6.0-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-1.10.3-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-android2-1.10.3-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-1.10.3-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-android2-1.10.3-beta.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/guava-11.0.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

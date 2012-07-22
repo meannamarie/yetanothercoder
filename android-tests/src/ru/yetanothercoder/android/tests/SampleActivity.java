@@ -100,7 +100,7 @@ public class SampleActivity extends Activity {
         GoogleUrl sUrl = new GoogleUrl(String.format(
                 "https://spreadsheets.google.com/feeds/spreadsheets/private/full?title=%s&title-exact=true",
                 URLEncoder.encode(FILE_NAME, "UTF-8")));
-        sUrl.prettyprint = true;
+        sUrl.setPrettyPrint(true);
 
         Log.d(TAG, "creating request...");
         HttpRequest request = transport.createRequestFactory().buildGetRequest(sUrl);
