@@ -27,14 +27,20 @@ public class GoogleAuth {
     public static final String DOCLIST_SERVICE = "writely";
 
     private final Context context;
-    private final String service;
 
-    public GoogleAuth(Context context, String service) {
+    public GoogleAuth(Context context) {
         this.context = context;
-        this.service = service;
     }
 
-    public AccountManagerFuture<Bundle> requestAuth(AccountManagerCallback<Bundle> tokenHandler) {
+    public AccountManagerFuture<Bundle> requestSheetAuth(AccountManagerCallback<Bundle> tokenHandler) {
+        return requestAuth(tokenHandler, SPREADSHEET_SERVICE);
+    }
+
+    public AccountManagerFuture<Bundle> requestDocListAuth(AccountManagerCallback<Bundle> tokenHandler) {
+        return requestAuth(tokenHandler, DOCLIST_SERVICE);
+    }
+
+    public AccountManagerFuture<Bundle> requestAuth(AccountManagerCallback<Bundle> tokenHandler, String service) {
         AccountManager accountManager = AccountManager.get(context);
         Account[] accounts = accountManager.getAccountsByType("com.google");
         Log.d(TAG, "accounts size: " + accounts.length);
