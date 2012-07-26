@@ -8,6 +8,7 @@ import android.util.Log;
 import com.google.api.client.xml.XmlNamespaceDictionary;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class FileUploadAndSpreadsheetTest extends ActivityInstrumentationTestCase2<SampleActivity> {
 
@@ -27,10 +28,12 @@ public class FileUploadAndSpreadsheetTest extends ActivityInstrumentationTestCas
         super("ru.yetanothercoder.android.tests", SampleActivity.class);
     }
 
-    public void testSpreadsheetAuth() throws IOException, AuthenticatorException, OperationCanceledException {
+    public void testSpreadsheetAuth() throws IOException, AuthenticatorException, OperationCanceledException, InterruptedException {
         // ex. http://blog.notdot.net/2010/05/Authenticating-against-App-Engine-from-an-Android-app
         Log.d(TAG, "BEFORE >>");
         getActivity().startActivity(new Intent(this.getActivity(), AccListActivity.class));
+
+        TimeUnit.SECONDS.sleep(5);
         /*AccountManagerFuture<Bundle> result = new GoogleAuth(getActivity(), SPREADSHEET_SERVICE).requestAuth(new OnTokenAcquired());
         Log.d(TAG, "CALLED, waiting for the result...");
         Bundle finished = result.getResult();
