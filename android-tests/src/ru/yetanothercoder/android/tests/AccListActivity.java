@@ -36,7 +36,7 @@ public class AccListActivity extends ListActivity {
 
         Log.i(TAG, "accounts: " + Arrays.toString(accounts));
 
-        this.setListAdapter(new ArrayAdapter(this, R.layout.accview, R.id.acc_item, accounts));
+        this.setListAdapter(new ArrayAdapter<Account>(this, R.layout.accview, R.id.acc_item, accounts));
     }
 
     private Account[] getAccounts() {
@@ -92,7 +92,7 @@ public class AccListActivity extends ListActivity {
                     Log.i(TAG, "received token: " + authToken);
                 }
             } catch (Exception e) {
-                Log.e(TAG, e.getMessage(), e);
+                Log.e(TAG, "auth failed", e);
             }
         }
     }
