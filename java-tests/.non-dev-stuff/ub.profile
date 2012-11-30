@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export JAVA_HOME=/usr/lib/jvm/jdk1.6.0_33
 export M2_HOME=/usr/local/maven/3.0.4
 export M2=$M2_HOME/bin
