@@ -7,14 +7,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import com.google.api.client.googleapis.GoogleUrl;
+import android.widget.Toast;
 import com.google.api.client.googleapis.auth.clientlogin.ClientLogin;
+import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpHeaders;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.apache.ApacheHttpTransport;
-import com.google.api.client.http.xml.atom.AtomParser;
+import com.google.api.client.http.xml.atom.AtomFeedParser;
 import com.google.api.client.xml.XmlNamespaceDictionary;
+import org.xmlpull.v1.XmlPullParserException;
 import ru.yetanothercoder.android.googleapi.spreadsheets.Entry;
 import ru.yetanothercoder.android.googleapi.spreadsheets.Feed;
 
@@ -25,7 +27,8 @@ public class SampleActivity extends Activity {
 
     private String TAG = "77777 MY LOG:";
 
-    public static final String FILE_NAME = "financisto-demo.copy";
+//    public static final String FILE_NAME = "financisto-demo.copy";
+    public static final String FILE_NAME = "my";
 
     public static final String AUTHORIZATION_HTTP_HEADER = "Authorization";
     public static final String GDATA_VERSION_HTTP_HEADER = "GData-Version";
@@ -43,7 +46,7 @@ public class SampleActivity extends Activity {
             .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/");
 
     private AccountManager accountManager;
-    private String authToken;
+    private String authToken = "DQAAAOwAAAC1HDiaTCQYEt0mwBniuC-ST3gIwPzNxpjue0sviCoxFJwHj0oVwRUuZRhgPeIjmfnFXXEeCh6TIOJtNzc30DDaVpHUk6ZapIsOQt7b_CXPZbPHX26pxW8rGz6Bs39gPtsNxI6UOja5DFBf-DkF_g0bGk0jX3q0o0TjCLGTPXL1TddDu9vR383pYpBYGeiZVpkwoWQskFm3JtJ73Y8hX2YX69rpfPnliM0m4nbOMW7ItUpQ1JPpVUZDn4XSiwnb8x_-NPe-lunEfTqvu5NH9QjwVZYYMLpeosF34P4h-tOMX2rkxtEb5GeEtPvBm79PfU0";
 
 
     @Override
@@ -51,7 +54,7 @@ public class SampleActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
 
-        //auth();
+        auth();
 
         setContentView(R.layout.main);
     }
@@ -81,7 +84,7 @@ public class SampleActivity extends Activity {
         //this.setListAdapter(new ArrayAdapter(this, R.layout.list_item, accounts));
     }
 
-    public void getSpreadsheet() throws IOException {
+    public void getSpreadsheet() throws IOException, XmlPullParserException {
         Log.d(TAG, "auth and get spreadsheet test");
 
         transport = new ApacheHttpTransport();
@@ -97,10 +100,10 @@ public class SampleActivity extends Activity {
         System.err.println("auth token:" + authResp.auth);*/
 
         // getting the sreadsheet
-        GoogleUrl sUrl = new GoogleUrl(String.format(
+        GenericUrl sUrl = new GenericUrl(String.format(
                 "https://spreadsheets.google.com/feeds/spreadsheets/private/full?title=%s&title-exact=true",
                 URLEncoder.encode(FILE_NAME, "UTF-8")));
-        sUrl.setPrettyPrint(true);
+//        sUrl.setPrettyPrint(true);
 
         Log.d(TAG, "creating request...");
         HttpRequest request = transport.createRequestFactory().buildGetRequest(sUrl);
@@ -108,18 +111,44 @@ public class SampleActivity extends Activity {
         Log.d(TAG, "adding headers...");
         addGoogleHeaders(request);
 
-        request.addParser(new AtomParser(SPREADSHEET_NAMESPACE));
+//        request.setParser(AtomFeedParser.create()<Feed, Entry>(SPREADSHEET_NAMESPACE));
         Log.d(TAG, "executing");
-        HttpResponse resp = request.execute();
+        HttpResponse resp = null;
+        try {
+            resp = request.execute();
+        } catch (IOException e) {
+            Toast.makeText(SampleActivity.this, "Request failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.d(TAG, "request failed:", e);
+            return;
+        }
         //Assert.assertTrue(resp.getStatusCode() == 200);
         Log.d(TAG, "resp status code: " + resp.getStatusCode());
 
 
-        Feed f = resp.parseAs(Feed.class);
-        //Assert.assertTrue(f.getEntries().size() == 1);
+        AtomFeedParser<Feed, Entry> parser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Feed.class, Entry.class);
 
-        testSpreadsheetEntry = f.getEntries().get(0);
-        Log.d(TAG, "Feed entry: " + f);
+        Entry entry = parser.parseNextEntry();
+        Log.d(TAG, "Feed entry: " + entry);
+
+        // ******************* getting content feed >>
+        String contentFeedUrl = entry.getContent().getSrc();
+        request = transport.createRequestFactory().buildGetRequest(new GenericUrl(contentFeedUrl));
+        addGoogleHeaders(request);
+        Log.d(TAG, "executing");
+        try {
+            resp = request.execute();
+        } catch (IOException e) {
+            Toast.makeText(SampleActivity.this, "Request failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.d(TAG, "request failed:", e);
+            return;
+        }
+        //Assert.assertTrue(resp.getStatusCode() == 200);
+        Log.d(TAG, "resp status code: " + resp.getStatusCode());
+
+        parser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Feed.class, Entry.class);
+
+        entry = parser.parseNextEntry();
+        Log.d(TAG, "content entry: " + entry);
     }
 
 
@@ -127,7 +156,7 @@ public class SampleActivity extends Activity {
     private void addGoogleHeaders(HttpRequest request) {
         HttpHeaders headers = new HttpHeaders();
         headers.setAuthorization("GoogleLogin auth=" + authToken);
-        headers.set("", "");
+//        headers.set("", "");
         //headers.setUserAgent("docker android junit test (user-agent)");
         headers.set(GDATA_VERSION_HTTP_HEADER, "3.0");
         request.setHeaders(headers);
@@ -157,6 +186,11 @@ public class SampleActivity extends Activity {
                 Log.d(TAG, e.toString());
             }
 
+            if (bundle == null) {
+                Log.d(TAG, "null bundle!");
+                return;
+            }
+
             Intent launch = (Intent) bundle.get(AccountManager.KEY_INTENT);
             if (launch != null) {
                 Log.d(TAG, "intent instead of key: " + launch);
@@ -173,7 +207,7 @@ public class SampleActivity extends Activity {
 
             try {
                 getSpreadsheet();
-            } catch (IOException e) {
+            } catch (Exception e) {
                 Log.d(TAG, "spreadsheet failed: ", e);
             }
         }

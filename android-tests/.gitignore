@@ -2,4 +2,4 @@
 junits/local.properties
 junits/ant.properties
 junits/gen
-gen
+gen/*

@@ -1,11 +1,16 @@
 <component name="libraryTable">
   <library name="libs">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/google-api-client-1.10.3-beta.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/google-api-client-android2-1.10.3-beta.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/google-http-client-1.10.3-beta.jar!/" />
-      <root url="jar://$PROJECT_DIR$/libs/google-http-client-android2-1.10.3-beta.jar!/" />
       <root url="jar://$PROJECT_DIR$/libs/guava-11.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-1.18.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-android-1.18.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-1.18.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-android-1.18.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-client-gson-1.18.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-gson-1.18.0-rc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-api-services-tasks-v1-rev41-1.19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/google-oauth-client-1.18.0-rc.jar!/com/google/api/client/auth/oauth" />
+      <root url="jar://$PROJECT_DIR$/libs/google-http-client-xml-1.18.0-rc.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
