@@ -83,9 +83,6 @@
 </feed>
 
 
-
-
-
         <?xml version='1.0' encoding='UTF-8'?><feed xmlns='http://www.w3.org/2005/Atom'
                                                     xmlns:openSearch='http://a9.com/-/spec/opensearchrss/1.0/'
                                                     xmlns:gs='http://schemas.google.com/spreadsheets/2006'
@@ -197,3 +194,24 @@
     <gs:cell row='2' col='3' inputValue='три!'>три!</gs:cell>
 </entry>
 </feed>
+
+
+        <!-- edit result: -->
+        <?xml version='1.0' encoding='UTF-8'?><entry xmlns='http://www.w3.org/2005/Atom'
+                                                     xmlns:gs='http://schemas.google.com/spreadsheets/2006'
+                                                     xmlns:gd='http://schemas.google.com/g/2005'
+                                                     gd:etag='&quot;YGEaRwJEFCt7Ig..&quot;'>
+<id>https://spreadsheets.google.com/feeds/cells/1MaZQtsXRQBepXPOJao3u12GWSeaKXZQnHnAYVvA36zU/od6/R1C1</id>
+<updated>2014-12-22T00:40:06.717Z</updated>
+<app:edited xmlns:app='http://www.w3.org/2007/app'>2014-12-22T00:40:06.717Z</app:edited>
+<category scheme='http://schemas.google.com/spreadsheets/2006' term='http://schemas.google.com/spreadsheets/2006#cell'/>
+<title>A1</title>
+<content>Колонка была подменена! в Mon Dec 22 04:46:54 Московское стандартное время 2014</content>
+<link rel='self' type='application/atom+xml'
+      href='https://spreadsheets.google.com/feeds/cells/1MaZQtsXRQBepXPOJao3u12GWSeaKXZQnHnAYVvA36zU/od6/private/full/R1C1'/>
+<link rel='edit' type='application/atom+xml'
+      href='https://spreadsheets.google.com/feeds/cells/1MaZQtsXRQBepXPOJao3u12GWSeaKXZQnHnAYVvA36zU/od6/private/full/R1C1'/>
+<gs:cell row='1' col='1' inputValue='Колонка была подменена! в Mon Dec 22 04:46:54 Московское стандартное время 2014'>
+    Колонка была подменена! в Mon Dec 22 04:46:54 Московское стандартное время 2014
+</gs:cell>
+</entry>

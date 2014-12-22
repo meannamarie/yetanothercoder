@@ -92,14 +92,14 @@ public class Entry {
 	public void setEtag(String etag) {
 		this.etag = etag;
 	}
-	
+
 	public Content getContent() {
 		return content;
 	}
-	public void setContent(Content workSheetUrl) {
-		this.content = workSheetUrl;
+
+	public void setContent(Content content) {
+		this.content = content;
 	}
-	
 	public Integer getRowCount() {
 		return rowCount;
 	}
@@ -115,20 +115,21 @@ public class Entry {
 	public List<Link> getLinks() {
 		return links;
 	}
+
 	public void addLink(String rel, String type, String href) {
 		if (links == null) {
 			links = new LinkedList<Link>();
 		}
 		links.add(new Link(rel, type, href));
 	}
-	
+
 	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
-	
 	public Cell getCell() {
 		return cell;
 	}
+
 	public void setCell(Cell cell) {
 		this.cell = cell;
 	}
@@ -145,11 +146,11 @@ public class Entry {
 		return batchOp;
 	}
 
+
 	public void setBatchOp(BatchOperation batchOp) {
 		this.batchOp = batchOp;
 	}
 
-	
 	public Long getTransactionId() {
 		return transactionId;
 	}
@@ -173,7 +174,7 @@ public class Entry {
 	public void setDate(long date) {
 		this.date = date;
 	}
-	
+
 	public Link findEditLink() {
 		for (Link link : links) {
 			if (REL_EDIT.equals(link.getRel())) {
@@ -182,7 +183,7 @@ public class Entry {
 		}
 		return null;
 	}
-	
+
 	public Link findSelfLink() {
 		for (Link link : links) {
 			if (REL_SELF.equals(link.getRel())) {
@@ -191,7 +192,7 @@ public class Entry {
 		}
 		return null;
 	}
-	
+
 	public Link findCellFeedUrl() {
 		for (Link link : links) {
 			if (link.getRel().contains(CELL_REL_MARK)) {
@@ -200,7 +201,7 @@ public class Entry {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public String toString() {
 		final int maxLen = 10;
@@ -223,5 +224,4 @@ public class Entry {
 		builder.append("]");
 		return builder.toString();
 	}
-
 }

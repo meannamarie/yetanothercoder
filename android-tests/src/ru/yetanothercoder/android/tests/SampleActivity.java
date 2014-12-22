@@ -9,19 +9,20 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.Toast;
 import com.google.api.client.googleapis.auth.clientlogin.ClientLogin;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.*;
 import com.google.api.client.http.apache.ApacheHttpTransport;
+import com.google.api.client.http.xml.atom.AtomContent;
 import com.google.api.client.http.xml.atom.AtomFeedParser;
 import com.google.api.client.xml.XmlNamespaceDictionary;
 import org.xmlpull.v1.XmlPullParserException;
+import ru.yetanothercoder.android.googleapi.spreadsheets.Content;
 import ru.yetanothercoder.android.googleapi.spreadsheets.Entry;
 import ru.yetanothercoder.android.googleapi.spreadsheets.Feed;
+import ru.yetanothercoder.android.googleapi.spreadsheets.MySheetEntry;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.Date;
 
 public class SampleActivity extends Activity {
 
@@ -43,7 +44,8 @@ public class SampleActivity extends Activity {
     private static final XmlNamespaceDictionary SPREADSHEET_NAMESPACE = new XmlNamespaceDictionary()
             .set("", "http://www.w3.org/2005/Atom")
             .set("gd", "http://schemas.google.com/g/2005")
-            .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/");
+            .set("openSearch", "http://a9.com/-/spec/opensearch/1.1/")
+            .set("xmlns:gsx", "http://schemas.google.com/spreadsheets/2006/extended");
 
     private AccountManager accountManager;
     private String authToken = "DQAAAOwAAAC1HDiaTCQYEt0mwBniuC-ST3gIwPzNxpjue0sviCoxFJwHj0oVwRUuZRhgPeIjmfnFXXEeCh6TIOJtNzc30DDaVpHUk6ZapIsOQt7b_CXPZbPHX26pxW8rGz6Bs39gPtsNxI6UOja5DFBf-DkF_g0bGk0jX3q0o0TjCLGTPXL1TddDu9vR383pYpBYGeiZVpkwoWQskFm3JtJ73Y8hX2YX69rpfPnliM0m4nbOMW7ItUpQ1JPpVUZDn4XSiwnb8x_-NPe-lunEfTqvu5NH9QjwVZYYMLpeosF34P4h-tOMX2rkxtEb5GeEtPvBm79PfU0";
@@ -54,7 +56,15 @@ public class SampleActivity extends Activity {
     {
         super.onCreate(savedInstanceState);
 
-        auth();
+        if (authToken == null) {
+            auth();
+        } else {
+            try {
+                processSpreadsheet();
+            } catch (Exception e) {
+                Log.d(TAG, "spreadsheet failed: ", e);
+            }
+        }
 
         setContentView(R.layout.main);
     }
@@ -84,7 +94,7 @@ public class SampleActivity extends Activity {
         //this.setListAdapter(new ArrayAdapter(this, R.layout.list_item, accounts));
     }
 
-    public void getSpreadsheet() throws IOException, XmlPullParserException {
+    public void processSpreadsheet() throws IOException, XmlPullParserException {
         Log.d(TAG, "auth and get spreadsheet test");
 
         transport = new ApacheHttpTransport();
@@ -127,11 +137,11 @@ public class SampleActivity extends Activity {
 
         AtomFeedParser<Feed, Entry> parser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Feed.class, Entry.class);
 
-        Entry entry = parser.parseNextEntry();
-        Log.d(TAG, "Feed entry: " + entry);
+        Entry sheet = parser.parseNextEntry();
+        Log.d(TAG, "Feed entry: " + sheet);
 
         // ******************* getting content feed >>
-        String contentFeedUrl = entry.getContent().getSrc();
+        String contentFeedUrl = sheet.getContent().getSrc();
         request = transport.createRequestFactory().buildGetRequest(new GenericUrl(contentFeedUrl));
         addGoogleHeaders(request);
         Log.d(TAG, "executing");
@@ -147,11 +157,77 @@ public class SampleActivity extends Activity {
 
         parser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Feed.class, Entry.class);
 
-        entry = parser.parseNextEntry();
-        Log.d(TAG, "content entry: " + entry);
+        Entry contentFeed = parser.parseNextEntry();
+        Log.d(TAG, "content entry: " + contentFeed);
+
+
+
+        // ******************* getting CELLS feed >>
+        String cellsFeedUrl = contentFeed.findCellFeedUrl().getHref();
+        request = transport.createRequestFactory().buildGetRequest(new GenericUrl(cellsFeedUrl));
+        resp = sendRequest(request);
+
+        parser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Feed.class, Entry.class);
+
+        Entry cell = parser.parseNextEntry();
+        log(cell);
+
+
+        // ******************* EDITing the cell >>
+        Content cellContents = cell.getContent();
+        String newValue = "Колонка была подменена! в " + new Date();
+        cellContents.setValue(newValue);
+        cell.getCell().setInputValue(newValue);
+        cell.getCell().setValue(newValue);
+        String editCellUrl = cell.findEditLink().getHref();
+
+        HttpContent cellContent = AtomContent.forEntry(SPREADSHEET_NAMESPACE, cell);
+        request = transport.createRequestFactory().buildPutRequest(new GenericUrl(editCellUrl), cellContent);
+        resp = sendRequest(request);
+
+//        log(resp.parseAsString());
+
+        AtomFeedParser<Entry, Entry> editParser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Entry.class, Entry.class);
+
+        Entry editAns = editParser.parseNextEntry();
+        log(editAns);
+
+
+        // ************************ ADDing row >>
+        MySheetEntry newRow = new MySheetEntry();
+        newRow.setCol1("31");
+        newRow.setCol1("32");
+        newRow.setCol1("33");
+
+        HttpContent rowContent = AtomContent.forEntry(SPREADSHEET_NAMESPACE, newRow);
+        request = transport.createRequestFactory().buildPostRequest(new GenericUrl(contentFeedUrl), rowContent);
+        resp = sendRequest(request);
+
+        AtomFeedParser<Entry, Entry> rowParser = AtomFeedParser.create(resp, SPREADSHEET_NAMESPACE, Entry.class, Entry.class);
+
+        Entry rowAns = editParser.parseNextEntry();
+        log(rowAns);
+
     }
 
+    private void log(Object editAns) {
+        Log.d(TAG, "cell entry: " + editAns);
+    }
 
+    private HttpResponse sendRequest(HttpRequest request) {
+        Log.d(TAG, "sending request...");
+        try {
+            addGoogleHeaders(request);
+            HttpResponse resp = request.execute();
+            Log.d(TAG, "resp status code: " + resp.getStatusCode());
+            //Assert.assertTrue(resp.getStatusCode() == 200);
+            return resp;
+        } catch (IOException e) {
+            Toast.makeText(SampleActivity.this, String.format("Request `%s` failed: %s", request, e.getMessage()), Toast.LENGTH_LONG).show();
+            Log.d(TAG, "request failed:", e);
+            throw new RuntimeException(e);
+        }
+    }
 
     private void addGoogleHeaders(HttpRequest request) {
         HttpHeaders headers = new HttpHeaders();
@@ -206,7 +282,7 @@ public class SampleActivity extends Activity {
             Log.d(TAG, "token: " + authToken);
 
             try {
-                getSpreadsheet();
+                processSpreadsheet();
             } catch (Exception e) {
                 Log.d(TAG, "spreadsheet failed: ", e);
             }

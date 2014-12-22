@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Feed {
 	
+	private static final String CELLS_REL_MARK = "#cellsfeed";
 	private static final String POST_REL_MARK = "#post";
 	private static final String BATCH_REL_MARK = "#batch";
 	
@@ -25,6 +26,12 @@ public class Feed {
 	
 	@Key("link")
 	private List<Link> links;
+
+	@Key("gs:rowCount")
+	private Integer rowCount;
+
+	@Key("gs:colCount")
+	private Integer colCount;
 	
 	public String getId() {
 		return id;
@@ -71,7 +78,16 @@ public class Feed {
 	public void setLinks(List<Link> links) {
 		this.links = links;
 	}
-	
+
+	public Link findCellsFeedUrl() {
+		for (Link link : links) {
+			if (link.getRel().endsWith(CELLS_REL_MARK)) {
+				return link;
+			}
+		}
+		return null;
+	}
+
 	public Link findPostUrl() {
 		for (Link link : links) {
 			if (link.getRel().contains(POST_REL_MARK)) {
@@ -106,5 +122,20 @@ public class Feed {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
+	public Integer getRowCount() {
+		return rowCount;
+	}
+
+	public void setRowCount(Integer rowCount) {
+		this.rowCount = rowCount;
+	}
+
+	public Integer getColCount() {
+		return colCount;
+	}
+
+	public void setColCount(Integer colCount) {
+		this.colCount = colCount;
+	}
 }

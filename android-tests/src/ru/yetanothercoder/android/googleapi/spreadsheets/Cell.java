@@ -14,6 +14,9 @@ public class Cell {
 	@Key("@inputValue")
 	private String inputValue;
 
+	@Key("text()")
+	private String value;
+
 	
 	public Cell() {
 		super();
@@ -48,6 +51,13 @@ public class Cell {
 	public void setInputValue(String inputValue) {
 		this.inputValue = inputValue;
 	}
-	
-	
+
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
 }
